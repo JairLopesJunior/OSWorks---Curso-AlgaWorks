@@ -12,14 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
 import com.algaworks.osworks.domain.model.Cliente;
 import com.algaworks.osworks.domain.repository.ClienteRepository;
 import com.algaworks.osworks.domain.service.CadastroClienteService;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class ClienteController {
 
 	@Autowired
@@ -44,7 +46,7 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@PostMapping
+	@RequestMapping(value = "/clientes", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE)
 	public Cliente adicionar(@RequestBody Cliente cliente) {
 		return cadastro.salvar(cliente);
 	}

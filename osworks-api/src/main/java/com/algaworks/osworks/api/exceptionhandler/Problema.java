@@ -1,12 +1,12 @@
 package com.algaworks.osworks.api.exceptionhandler;
 
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public class Problema {
 
 	private Integer status;
-	private LocalDate dataHora;
+	private OffsetDateTime dataHora;
 	private String titulo;
 	private List<Campo> campos;
 	
@@ -38,10 +38,11 @@ public class Problema {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public LocalDate getDataHora() {
+
+	public OffsetDateTime getDataHora() {
 		return dataHora;
 	}
-	public void setDataHora(LocalDate dataHora) {
+	public void setDataHora(OffsetDateTime dataHora) {
 		this.dataHora = dataHora;
 	}
 	public String getTitulo() {

@@ -5,14 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import org.hibernate.annotations.GenericGenerator;
+import javax.validation.constraints.NotNull;
+
+import com.algaworks.osworks.domain.ValidationGroups;
 
 @Entity
 public class Cliente {
  
+	@NotNull(groups = ValidationGroups.ClienteId.class)
 	@Id
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotBlank
